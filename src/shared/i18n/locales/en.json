@@ -1,9 +1,21 @@
 {
   "checkout": "Checkout",
-  "poweredBy": "Powered by",
+  "powered_by": "Powered by",
   "pricing": {
     "title_one": "{{count}} day free",
     "title_many": "{{count}} days free",
     "description": "then {{price}} {{currency}} per {{cycle}} days"
+  },
+  "card_number": "Card number",
+  "expiration_date": "Expiration date",
+  "cvv": "CVV",
+  "pay_with_card": "or pay with card",
+  "start_trial": "Start trial",
+  "helper_text": {
+    "you_have": "You'll have your",
+    "plan_pro": "Plan Pro during 1 year.",
+    "after_this": "After this period of time, your plan will be",
+    "automatically_renewed": "automatically renewed",
+    "with_its": "with its original price without any discounts applied."
   }
 }

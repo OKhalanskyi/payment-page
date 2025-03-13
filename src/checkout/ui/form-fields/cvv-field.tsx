@@ -1,21 +1,20 @@
 import React from 'react';
 import cardValidator from 'card-validator';
 import { FormLabel, FormMessage } from '@/components/form';
-import {
-  ControllerFieldState,
-  ControllerRenderProps,
-  FieldValues,
-} from 'react-hook-form';
+import { ControllerFieldState, ControllerRenderProps } from 'react-hook-form';
 import { Lock } from '@/shared/icons';
+import { PaymentCardFormValues } from '@/checkout/model/use-payment-card-form.ts';
+import { useTranslation } from 'react-i18next';
 
 export interface CVVFieldProps {
-  field: ControllerRenderProps<FieldValues, string>;
+  field: ControllerRenderProps<PaymentCardFormValues, 'cvv'>;
   fieldState?: ControllerFieldState;
 }
 
 export const CVVField = ({ field }: CVVFieldProps) => {
   const [isValidCvv, setIsValidCvv] = React.useState<boolean | null>(null);
   const cvvId = React.useId();
+  const { t } = useTranslation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let rawValue = e.target.value.replace(/\D/g, '');
@@ -31,7 +30,7 @@ export const CVVField = ({ field }: CVVFieldProps) => {
   return (
     <div className="flex flex-col gap-1 min-w-32">
       <FormLabel htmlFor={cvvId} className="text-gray-600 text-sm font-medium">
-        CVV
+        {t('cvv')}
       </FormLabel>
 
       <div className="relative">

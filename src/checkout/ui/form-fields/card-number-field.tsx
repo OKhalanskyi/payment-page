@@ -2,20 +2,19 @@ import React from 'react';
 import cardValidator from 'card-validator';
 import { FormLabel, FormMessage } from '@/components/form';
 import { CreditCard } from '@/shared/icons';
-import {
-  ControllerFieldState,
-  ControllerRenderProps,
-  FieldValues,
-} from 'react-hook-form';
+import { ControllerFieldState, ControllerRenderProps } from 'react-hook-form';
+import { PaymentCardFormValues } from '@/checkout/model/use-payment-card-form.ts';
+import { useTranslation } from 'react-i18next';
 
 export interface CardNumberFieldProps {
-  field: ControllerRenderProps<FieldValues, string>;
+  field: ControllerRenderProps<PaymentCardFormValues, 'cardNumber'>;
   fieldState?: ControllerFieldState;
 }
 
 export const CardNumberField = ({ field }: CardNumberFieldProps) => {
   const [cardType, setCardType] = React.useState<string | null>(null);
   const cardNumberId = React.useId();
+  const { t } = useTranslation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let rawValue = e.target.value.replace(/\D/g, '');
@@ -41,7 +40,7 @@ export const CardNumberField = ({ field }: CardNumberFieldProps) => {
         htmlFor={cardNumberId}
         className="text-gray-600 text-sm font-medium"
       >
-        Card Number
+        {t('card_number')}
       </FormLabel>
 
       <div className="relative">

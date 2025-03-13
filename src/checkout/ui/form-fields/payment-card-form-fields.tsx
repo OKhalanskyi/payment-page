@@ -1,8 +1,8 @@
-import { usePaymentCardFormContext } from '@/checkout/model/use-payment-card-form.ts';
+import { usePaymentCardFormContext } from '@/checkout/model/use-payment-card-form';
 import { FormField, FormItem } from '@/components/form';
-import { CardNumberField } from '@/checkout/ui/form-fields/card-number-field.tsx';
-import { ExpiryDateField } from '@/checkout/ui/form-fields/expiry-date-field.tsx';
-import { CVVField } from '@/checkout/ui/form-fields/cvv-field.tsx';
+import { CardNumberField } from '@/checkout/ui/form-fields/card-number-field';
+import { ExpiryDateField } from '@/checkout/ui/form-fields/expiry-date-field';
+import { CVVField } from '@/checkout/ui/form-fields/cvv-field';
 
 const PaymentCardFormFields = () => {
   const { control } = usePaymentCardFormContext();

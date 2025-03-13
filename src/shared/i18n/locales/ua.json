@@ -5,5 +5,17 @@
     "title_one": "{{count}} день безкоштовно",
     "title_many": "{{count}} днів безкоштовно",
     "description": "потім {{price}} {{currency}} за {{cycle}} днів"
+  },
+  "card_number": "Номер картки",
+  "expiration_date": "Термін дії",
+  "cvv": "CVV",
+  "pay_with_card": "або оплатити карткою",
+  "start_trial": "Почати пробний період",
+  "helper_text": {
+    "you_have": "Ви матимете свій",
+    "plan_pro": "План Про протягом 1 року.",
+    "after_this": "Після цього періоду ваш план буде",
+    "automatically_renewed": "автоматично поновлено",
+    "with_its": "за оригінальною ціною без будь-яких знижок."
   }
 }

@@ -2,20 +2,19 @@ import React from 'react';
 import cardValidator from 'card-validator';
 import { FormLabel, FormMessage } from '@/components/form';
 import { Calendar } from '@/shared/icons';
-import {
-  ControllerFieldState,
-  ControllerRenderProps,
-  FieldValues,
-} from 'react-hook-form';
+import { ControllerFieldState, ControllerRenderProps } from 'react-hook-form';
+import { PaymentCardFormValues } from '@/checkout/model/use-payment-card-form.ts';
+import { useTranslation } from 'react-i18next';
 
 export interface ExpiryDateFieldProps {
-  field: ControllerRenderProps<FieldValues, string>;
+  field: ControllerRenderProps<PaymentCardFormValues, 'expiryDate'>;
   fieldState?: ControllerFieldState;
 }
 
 export const ExpiryDateField = ({ field }: ExpiryDateFieldProps) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isValidDate, setIsValidDate] = React.useState<boolean | null>(null);
+  const { t, i18n } = useTranslation();
 
   const expiryDateId = React.useId();
 
@@ -42,7 +41,7 @@ export const ExpiryDateField = ({ field }: ExpiryDateFieldProps) => {
         htmlFor={expiryDateId}
         className="text-gray-600 text-sm font-medium"
       >
-        Expiry Date
+        {t('expiration_date')}
       </FormLabel>
 
       <div className="relative">
@@ -52,7 +51,7 @@ export const ExpiryDateField = ({ field }: ExpiryDateFieldProps) => {
         <input
           id={expiryDateId}
           autoComplete="cc-exp"
-          placeholder="MM / YY"
+          placeholder={i18n.language === 'en' ? 'MM / YY' : 'ММ / РР'}
           inputMode="numeric"
           name={field.name}
           value={field.value || ''}
