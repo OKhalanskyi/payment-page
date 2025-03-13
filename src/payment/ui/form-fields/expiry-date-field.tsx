@@ -1,7 +1,11 @@
 import React from 'react';
 import { FormLabel, FormMessage } from '@/components/form';
 import { Calendar } from '@/shared/icons';
-import { ControllerFieldState, ControllerRenderProps } from 'react-hook-form';
+import {
+  ControllerFieldState,
+  ControllerRenderProps,
+  useFormContext,
+} from 'react-hook-form';
 import { PaymentCardFormValues } from '@/payment/model/use-payment-card-form';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
@@ -16,6 +20,7 @@ export const ExpiryDateField = ({
   fieldState,
 }: ExpiryDateFieldProps) => {
   const { t, i18n } = useTranslation();
+  const { trigger } = useFormContext();
 
   const expiryDateId = React.useId();
 
@@ -30,6 +35,8 @@ export const ExpiryDateField = ({
     }
 
     field.onChange(formatted);
+
+    trigger('expiryDate');
   };
 
   return (

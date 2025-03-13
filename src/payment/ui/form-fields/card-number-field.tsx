@@ -2,7 +2,11 @@ import React from 'react';
 import cardValidator from 'card-validator';
 import { FormLabel, FormMessage } from '@/components/form';
 import { CreditCard } from '@/shared/icons';
-import { ControllerFieldState, ControllerRenderProps } from 'react-hook-form';
+import {
+  ControllerFieldState,
+  ControllerRenderProps,
+  useFormContext,
+} from 'react-hook-form';
 import { PaymentCardFormValues } from '@/payment/model/use-payment-card-form';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
@@ -19,6 +23,7 @@ export const CardNumberField = ({
   const [cardType, setCardType] = React.useState<string | null>(null);
   const cardNumberId = React.useId();
   const { t } = useTranslation();
+  const { trigger } = useFormContext();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let rawValue = e.target.value.replace(/\D/g, '');
@@ -36,6 +41,8 @@ export const CardNumberField = ({
     const formattedValue = parts.join(' ');
 
     field.onChange(formattedValue);
+
+    trigger('cardNumber');
   };
 
   return (
