@@ -21,5 +21,15 @@
   "total": "Total",
   "processing": "Processing",
   "payment_success_title": "Payment Successful!",
-  "payment_success_message": "Thank you! Your payment has been processed successfully."
+  "payment_success_message": "Thank you! Your payment has been processed successfully.",
+  "payment_form": {
+    "errors": {
+      "cardNumberRequired": "Card number is required",
+      "cardNumberInvalid": "Please enter a valid card number",
+      "expiryRequired": "Expiry date is required",
+      "expiryInvalid": "Please enter a valid expiration date that is not expired",
+      "cvvRequired": "CVV is required",
+      "cvvInvalid": "Please enter a valid CVV"
+    }
+  }
 }

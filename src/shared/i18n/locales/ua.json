@@ -21,5 +21,15 @@
   "total": "Всього",
   "processing": "Обробка платежу",
   "payment_success_title": "Оплату успішно завершено!",
-  "payment_success_message": "Дякуємо! Ваш платіж був успішно оброблений."
+  "payment_success_message": "Дякуємо! Ваш платіж був успішно оброблений.",
+  "payment_form": {
+    "errors": {
+      "cardNumberRequired": "Потрібно ввести номер картки",
+      "cardNumberInvalid": "Будь ласка, введіть дійсний номер картки",
+      "expiryRequired": "Потрібно ввести термін дії",
+      "expiryInvalid": "Будь ласка, введіть дійсний термін дії, який ще не минув",
+      "cvvRequired": "Потрібно ввести CVV",
+      "cvvInvalid": "Будь ласка, введіть дійсний CVV"
+    }
+  }
 }
