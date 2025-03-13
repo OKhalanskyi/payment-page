@@ -1,4 +1,4 @@
-import { getPricingDetails } from '@/checkout/api/get-pricing-details.ts';
+import { getPricingDetails } from '@/payment/api/get-pricing-details.ts';
 import { useQuery } from '@tanstack/react-query';
 
 export const usePricingDetails = () => {

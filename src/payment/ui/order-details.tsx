@@ -1,4 +1,4 @@
-import { useOrderDetails } from '@/checkout/model/use-order-details.ts';
+import { useOrderDetails } from '@/payment/model/use-order-details.ts';
 import { useTranslation } from 'react-i18next';
 import { Loader } from '@/shared/icons';
 

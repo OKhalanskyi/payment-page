@@ -1,4 +1,4 @@
-import { usePricingDetails } from '@/checkout/model/use-pricing-details';
+import { usePricingDetails } from '@/payment/model/use-pricing-details';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft, Loader } from '@/shared/icons';
 
