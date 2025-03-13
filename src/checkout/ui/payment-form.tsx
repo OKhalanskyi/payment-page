@@ -32,7 +32,7 @@ const PaymentForm = () => {
           <p className="min-w-fit text-sm text-gray-400">
             {t('pay_with_card')}
           </p>
-          <div className="min-h-px	 grow bg-gray-200 w-full" />
+          <div className="min-h-px grow bg-gray-200 w-full" />
         </div>
 
         <PaymentCardFormFields />
