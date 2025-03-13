@@ -1,6 +1,10 @@
 import React from 'react';
 import { FormLabel, FormMessage } from '@/components/form';
-import { ControllerFieldState, ControllerRenderProps } from 'react-hook-form';
+import {
+  ControllerFieldState,
+  ControllerRenderProps,
+  useFormContext,
+} from 'react-hook-form';
 import { Lock } from '@/shared/icons';
 import { PaymentCardFormValues } from '@/payment/model/use-payment-card-form';
 import { useTranslation } from 'react-i18next';
@@ -14,6 +18,7 @@ export interface CVVFieldProps {
 export const CVVField = ({ field, fieldState }: CVVFieldProps) => {
   const cvvId = React.useId();
   const { t } = useTranslation();
+  const { trigger } = useFormContext();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let rawValue = e.target.value.replace(/\D/g, '');
@@ -21,6 +26,8 @@ export const CVVField = ({ field, fieldState }: CVVFieldProps) => {
     rawValue = rawValue.slice(0, 4);
 
     field.onChange(rawValue);
+
+    trigger('cvv');
   };
 
   return (

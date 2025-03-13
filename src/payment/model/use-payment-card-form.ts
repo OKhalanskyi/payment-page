@@ -59,6 +59,7 @@ export const usePaymentCardForm = () => {
   return useForm<PaymentCardFormValues>({
     resolver: zodResolver(schema),
     mode: 'onBlur',
+    reValidateMode: 'onBlur',
   });
 };
 
