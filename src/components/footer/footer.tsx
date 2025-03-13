@@ -5,7 +5,7 @@ export const Footer = () => {
 
   return (
     <footer className="text-center text-gray-600">
-      {t('poweredBy')}&nbsp;<strong>Solid</strong>
+      {t('powered_by')}&nbsp;<strong>Solid</strong>
     </footer>
   );
 };

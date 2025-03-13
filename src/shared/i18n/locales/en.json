@@ -1,4 +1,9 @@
 {
   "checkout": "Checkout",
-  "poweredBy": "Powered by"
+  "poweredBy": "Powered by",
+  "pricing": {
+    "title_one": "{{count}} day free",
+    "title_many": "{{count}} days free",
+    "description": "then {{price}} {{currency}} per {{cycle}} days"
+  }
 }

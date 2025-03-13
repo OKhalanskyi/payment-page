@@ -1,4 +1,9 @@
 {
   "checkout": "Оплата",
-  "poweredBy": "На основі"
+  "powered_by": "На основі",
+  "pricing": {
+    "title_one": "{{count}} день безкоштовно",
+    "title_many": "{{count}} днів безкоштовно",
+    "description": "потім {{price}} {{currency}} за {{cycle}} днів"
+  }
 }
