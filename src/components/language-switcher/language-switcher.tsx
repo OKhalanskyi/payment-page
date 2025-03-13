@@ -20,7 +20,8 @@ export const LanguageSwitcher = () => {
       <div className="hidden lg:flex gap-4">
         <button
           className={clsx('cursor-pointer', {
-            'text-gray-400': i18n.language !== 'en',
+            'text-gray-400':
+              i18n.language !== 'en' && i18n.language !== 'en-GB',
           })}
           onClick={() => changeLanguage('en')}
         >
