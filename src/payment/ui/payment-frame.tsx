@@ -1,8 +1,8 @@
-import PriceTitle from '@/payment/ui/price-title.tsx';
-import PaymentForm from '@/payment/ui/payment-form.tsx';
-import OrderDetails from '@/payment/ui/order-details.tsx';
-import { usePaymentProcessing } from '@/payment/model/use-payment-processing.tsx';
-import SuccessPaymentMessage from '@/payment/ui/success-payment-message.tsx';
+import PriceTitle from '@/payment/ui/price-title';
+import PaymentForm from '@/payment/ui/payment-form';
+import OrderDetails from '@/payment/ui/order-details';
+import { usePaymentProcessing } from '@/payment/model/use-payment-processing';
+import SuccessPaymentMessage from '@/payment/ui/success-payment-message';
 
 export const PaymentFrame = () => {
   const { isSuccess } = usePaymentProcessing();

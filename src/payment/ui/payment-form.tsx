@@ -1,6 +1,6 @@
 import { usePaymentCardForm } from '@/payment/model/use-payment-card-form';
-import { usePaymentProcessing } from '@/payment/model/use-payment-processing.tsx';
-import PaymentCardFormFields from '@/payment/ui/form-fields/payment-card-form-fields.tsx';
+import { usePaymentProcessing } from '@/payment/model/use-payment-processing';
+import PaymentCardFormFields from '@/payment/ui/form-fields/payment-card-form-fields';
 import { FormProvider } from 'react-hook-form';
 import { Button } from '@/components/button';
 import { ApplePay, Loader } from '@/shared/icons';

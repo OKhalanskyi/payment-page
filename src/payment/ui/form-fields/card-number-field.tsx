@@ -3,7 +3,7 @@ import cardValidator from 'card-validator';
 import { FormLabel, FormMessage } from '@/components/form';
 import { CreditCard } from '@/shared/icons';
 import { ControllerFieldState, ControllerRenderProps } from 'react-hook-form';
-import { PaymentCardFormValues } from '@/payment/model/use-payment-card-form.ts';
+import { PaymentCardFormValues } from '@/payment/model/use-payment-card-form';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 

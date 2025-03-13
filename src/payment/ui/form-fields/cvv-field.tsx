@@ -2,7 +2,7 @@ import React from 'react';
 import { FormLabel, FormMessage } from '@/components/form';
 import { ControllerFieldState, ControllerRenderProps } from 'react-hook-form';
 import { Lock } from '@/shared/icons';
-import { PaymentCardFormValues } from '@/payment/model/use-payment-card-form.ts';
+import { PaymentCardFormValues } from '@/payment/model/use-payment-card-form';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 

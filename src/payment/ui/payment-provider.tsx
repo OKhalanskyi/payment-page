@@ -1,8 +1,8 @@
 import React from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { processCardPayment } from '@/payment/api/process-card-payment.ts';
-import { processApplePayment } from '@/payment/api/process-apple-pay.ts';
-import { PaymentCardFormValues } from '@/payment/model/use-payment-card-form.ts';
+import { processCardPayment } from '@/payment/api/process-card-payment';
+import { processApplePayment } from '@/payment/api/process-apple-pay';
+import { PaymentCardFormValues } from '@/payment/model/use-payment-card-form';
 import { PaymentContext } from '../model/use-payment-processing';
 
 export const PaymentProvider = ({
