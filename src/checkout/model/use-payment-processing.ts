@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { processApplePayment } from '@/checkout/api/process-apple-pay';
-import { processCardPayment } from '@/checkout/api/process-card-payment.ts';
+import { processCardPayment } from '@/checkout/api/process-card-payment';
+import { PaymentCardFormValues } from '@/checkout/model/use-payment-card-form.ts';
 
 export const usePaymentProcessing = () => {
   const cardPaymentMutation = useMutation({
@@ -10,6 +11,10 @@ export const usePaymentProcessing = () => {
   const applePayMutation = useMutation({
     mutationFn: processApplePayment,
   });
+
+  const onCardPayment = async (data: PaymentCardFormValues) => {
+    cardPaymentMutation.mutate(data);
+  };
 
   return {
     processCardPayment: cardPaymentMutation.mutate,
@@ -22,5 +27,6 @@ export const usePaymentProcessing = () => {
       cardPaymentMutation.reset();
       applePayMutation.reset();
     },
+    onCardPayment,
   };
 };
