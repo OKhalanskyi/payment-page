@@ -4,3 +4,4 @@ export { Lock } from './lock';
 export { CreditCard } from './credit-card';
 export { ApplePay } from './apple-pay';
 export { Loader } from './loader';
+export { Success } from './success';

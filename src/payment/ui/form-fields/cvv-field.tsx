@@ -1,18 +1,17 @@
 import React from 'react';
-import cardValidator from 'card-validator';
 import { FormLabel, FormMessage } from '@/components/form';
 import { ControllerFieldState, ControllerRenderProps } from 'react-hook-form';
 import { Lock } from '@/shared/icons';
-import { PaymentCardFormValues } from '@/checkout/model/use-payment-card-form.ts';
+import { PaymentCardFormValues } from '@/payment/model/use-payment-card-form.ts';
 import { useTranslation } from 'react-i18next';
+import clsx from 'clsx';
 
 export interface CVVFieldProps {
   field: ControllerRenderProps<PaymentCardFormValues, 'cvv'>;
   fieldState?: ControllerFieldState;
 }
 
-export const CVVField = ({ field }: CVVFieldProps) => {
-  const [isValidCvv, setIsValidCvv] = React.useState<boolean | null>(null);
+export const CVVField = ({ field, fieldState }: CVVFieldProps) => {
   const cvvId = React.useId();
   const { t } = useTranslation();
 
@@ -22,9 +21,6 @@ export const CVVField = ({ field }: CVVFieldProps) => {
     rawValue = rawValue.slice(0, 4);
 
     field.onChange(rawValue);
-
-    const validation = cardValidator.cvv(rawValue, [3, 4]);
-    setIsValidCvv(validation.isValid || false);
   };
 
   return (
@@ -49,17 +45,18 @@ export const CVVField = ({ field }: CVVFieldProps) => {
           onBlur={field.onBlur}
           ref={field.ref}
           aria-label="Security code"
-          className="pl-10 rounded-lg border border-gray-300 px-3 py-2 text-gray-600
-                     focus:outline-none focus:border-gray-600 focus:ring-1 focus:ring-gray-600
-                     transition duration-200 placeholder:text-gray-600 w-full"
+          className={clsx(
+            'pl-10 rounded-lg px-3 py-2 text-gray-600 focus:outline-none ring ring-gray-300 focus:ring-2 focus:ring-gray-600 transition duration-200 placeholder:text-gray-600 w-full',
+            {
+              'ring-2 ring-red-500 focus:ring-red-500': Boolean(
+                fieldState?.error,
+              ),
+            },
+          )}
         />
       </div>
 
       <FormMessage />
-
-      {isValidCvv === false && field.value.replace(/\D/g, '').length >= 3 && (
-        <p className="text-red-500 text-sm">Invalid CVV code</p>
-      )}
     </div>
   );
 };

@@ -1,19 +1,20 @@
 import React from 'react';
-import cardValidator from 'card-validator';
 import { FormLabel, FormMessage } from '@/components/form';
 import { Calendar } from '@/shared/icons';
 import { ControllerFieldState, ControllerRenderProps } from 'react-hook-form';
-import { PaymentCardFormValues } from '@/checkout/model/use-payment-card-form.ts';
+import { PaymentCardFormValues } from '@/payment/model/use-payment-card-form.ts';
 import { useTranslation } from 'react-i18next';
+import clsx from 'clsx';
 
 export interface ExpiryDateFieldProps {
   field: ControllerRenderProps<PaymentCardFormValues, 'expiryDate'>;
   fieldState?: ControllerFieldState;
 }
 
-export const ExpiryDateField = ({ field }: ExpiryDateFieldProps) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isValidDate, setIsValidDate] = React.useState<boolean | null>(null);
+export const ExpiryDateField = ({
+  field,
+  fieldState,
+}: ExpiryDateFieldProps) => {
   const { t, i18n } = useTranslation();
 
   const expiryDateId = React.useId();
@@ -29,10 +30,6 @@ export const ExpiryDateField = ({ field }: ExpiryDateFieldProps) => {
     }
 
     field.onChange(formatted);
-
-    const digitsOnly = rawValue;
-    const validation = cardValidator.expirationDate(digitsOnly);
-    setIsValidDate(validation.isValid || false);
   };
 
   return (
@@ -58,21 +55,18 @@ export const ExpiryDateField = ({ field }: ExpiryDateFieldProps) => {
           onChange={handleChange}
           onBlur={field.onBlur}
           ref={field.ref}
-          className="pl-10 w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-600
-                     focus:outline-none focus:border-gray-600 focus:ring-1 focus:ring-gray-600
-                     transition duration-200 placeholder:text-gray-400"
+          className={clsx(
+            'pl-10 w-full rounded-lg px-3 py-2 text-gray-600 focus:outline-none ring ring-gray-300 focus:ring-2 focus:ring-gray-600  transition duration-200 placeholder:text-gray-400',
+            {
+              'ring-2 ring-red-500 focus:ring-red-500': Boolean(
+                fieldState?.error,
+              ),
+            },
+          )}
         />
       </div>
 
       <FormMessage />
-
-      {/*/!* Optionally, show a quick text if isValidDate is false*/}
-      {/*    and user has typed 4 digits (i.e. 'MMYY') *!/*/}
-      {/*{isValidDate === false && field.value.replace(/\D/g, '').length === 4 && (*/}
-      {/*  <p className="text-red-500 text-sm">*/}
-      {/*    Invalid or expired date*/}
-      {/*  </p>*/}
-      {/*)}*/}
     </div>
   );
 };

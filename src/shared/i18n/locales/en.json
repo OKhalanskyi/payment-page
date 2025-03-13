@@ -18,5 +18,8 @@
     "automatically_renewed": "automatically renewed",
     "with_its": "with its original price without any discounts applied."
   },
-  "total": "Total"
+  "total": "Total",
+  "processing": "Processing",
+  "payment_success_title": "Payment Successful!",
+  "payment_success_message": "Thank you! Your payment has been processed successfully."
 }

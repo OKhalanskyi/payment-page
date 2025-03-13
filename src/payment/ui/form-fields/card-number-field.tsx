@@ -3,15 +3,19 @@ import cardValidator from 'card-validator';
 import { FormLabel, FormMessage } from '@/components/form';
 import { CreditCard } from '@/shared/icons';
 import { ControllerFieldState, ControllerRenderProps } from 'react-hook-form';
-import { PaymentCardFormValues } from '@/checkout/model/use-payment-card-form.ts';
+import { PaymentCardFormValues } from '@/payment/model/use-payment-card-form.ts';
 import { useTranslation } from 'react-i18next';
+import clsx from 'clsx';
 
 export interface CardNumberFieldProps {
   field: ControllerRenderProps<PaymentCardFormValues, 'cardNumber'>;
   fieldState?: ControllerFieldState;
 }
 
-export const CardNumberField = ({ field }: CardNumberFieldProps) => {
+export const CardNumberField = ({
+  field,
+  fieldState,
+}: CardNumberFieldProps) => {
   const [cardType, setCardType] = React.useState<string | null>(null);
   const cardNumberId = React.useId();
   const { t } = useTranslation();
@@ -58,9 +62,14 @@ export const CardNumberField = ({ field }: CardNumberFieldProps) => {
           onChange={handleChange}
           onBlur={field.onBlur}
           ref={field.ref}
-          className="pl-10 rounded-lg border border-gray-300 px-3 py-2 text-gray-600
-                     focus:outline-none focus:border-gray-600 focus:ring-1 focus:ring-gray-600
-                     transition duration-200 w-full"
+          className={clsx(
+            'pl-10 rounded-lg px-3 py-2 text-gray-600 focus:outline-none ring ring-gray-300 focus:ring-2 focus:ring-gray-600 transition duration-200 w-full',
+            {
+              'ring-2 ring-red-500 focus:ring-red-500': Boolean(
+                fieldState?.error,
+              ),
+            },
+          )}
         />
 
         {cardType && (
